@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {
     AppRegistry,
     StyleSheet,
@@ -16,8 +16,18 @@ import {
     ListView,
     TouchableHighlight,
     TouchableNativeFeedback,
-    Platform
+    Platform,
+    TouchableOpacity,
+    ViewPagerAndroid,
+    // Switch,
+    // ListItem,
+    // List
 } from 'react-native';
+
+import {List, ListItem, Switch} from 'native-base';
+
+
+import ToastAndroid from './ToastAndroid';
 
 export default class AwesomeProject extends Component {
     render() {
@@ -254,6 +264,30 @@ class PlatformSample extends Component {
     }
 }
 
+class ClearText extends Component {
+    constructor(props) {
+        super(props);
+        this.clearText = this.clearText.bind(this);
+    }
+
+    clearText() {
+        ToastAndroid.show('Awesome', ToastAndroid.SHORT);
+        this._textInput.setNativeProps({text: ''});
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <TextInput ref={component => this._textInput = component}
+                           style={styles.textInput}/>
+                <TouchableOpacity onPress={this.clearText}>
+                    <Text>Clear text</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+}
+
 
 //  Since it accepts any value, you can also use it to return platform specific component, like below:
 // const Component = Platform.select({
@@ -264,7 +298,93 @@ class PlatformSample extends Component {
 // <Component />;
 
 
+class ViewPagerSample extends Component {
+
+    render() {
+        return (
+            <ViewPagerAndroid style={styles.viewPager} initialPage={0}>
+                <View style={styles.pageStyle}>
+                    <Text>First page</Text>
+                </View>
+                <View style={styles.pageStyle}>
+                    <Text>Second page</Text>
+                </View>
+            </ViewPagerAndroid>
+        );
+    }
+}
+
+class SwitchSample extends Component {
+    state = {
+        trueSwitchIsOn: true,
+        falseSwitchIsOn: false,
+    };
+
+    render() {
+        const ListItemWithSwitch = props =>
+            <ListItem>
+                <Text style={{ alignSelf: 'center' }}>{props.text}</Text>
+                <Text note/>
+                <Switch
+                    style={{ alignSelf: 'center' }}
+                    onValueChange={props.onValueChange}
+                    value={props.value}
+                />
+            </ListItem>;
+
+        ListItemWithSwitch.propTypes = {
+            text: PropTypes.string,
+            onValueChange: PropTypes.func,
+            value: PropTypes.boolean,
+        };
+
+        return (
+            <View>
+                <List>
+                    <ListItemWithSwitch
+                        text={'test'}
+                        onValueChange={(value) => this.setState({falseSwitchIsOn: value})}
+                        value={this.state.falseSwitchIsOn}/>
+                    <ListItemWithSwitch
+                        text={'test'}
+                        onValueChange={(value) => this.setState({trueSwitchIsOn: value})}
+                        value={this.state.trueSwitchIsOn}/>
+                </List>
+            </View>
+        )
+    }
+}
+
+class SwitchSample2 extends Component {
+    state = {
+        trueSwitchIsOn: true,
+        falseSwitchIsOn: false,
+    };
+
+    render() {
+        return (
+            <View>
+                <Switch
+                    onValueChange={(value) => this.setState({falseSwitchIsOn: value})}
+                    style={{marginBottom: 10}}
+                    value={this.state.falseSwitchIsOn}/>
+                <Switch
+                    onValueChange={(value) => this.setState({trueSwitchIsOn: value})}
+                    value={this.state.trueSwitchIsOn}/>
+            </View>
+        )
+    }
+}
+
+
 const styles = StyleSheet.create({
+    viewPager: {
+        flex: 1,
+    },
+    pageStyle: {
+        alignItems: 'center',
+        padding: 20,
+    },
     bigBlue: {
         ...Platform.select({
             ios: {
@@ -297,7 +417,7 @@ const styles = StyleSheet.create({
 
 
 //AppRegistry.registerComponent('ListViewBasics', () => TouchesSample);
-AppRegistry.registerComponent('ListViewBasics', () => PlatformSample);
+AppRegistry.registerComponent('ListViewBasics', () => SwitchSample);
 AppRegistry.registerComponent('PizzaTranslator', () => PizzaTranslator);
 AppRegistry.registerComponent('BlinkApp', () => BlinkApp);
 // AppRegistry.registerComponent('LotsOfGreetings', () => LotsOfGreetings);
