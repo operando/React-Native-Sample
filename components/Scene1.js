@@ -9,7 +9,7 @@ import {
     ToolbarAndroid
 } from 'react-native';
 
-import {Container, Content, Button} from 'native-base';
+import {Container, Header, Title, Body, Content, Button} from 'native-base';
 
 import ToastAndroid from '../ToastAndroid';
 
@@ -20,7 +20,12 @@ class Scene1 extends Component {
 
         return (
             <Container>
-                <Content>
+                <Header>
+                    <Body>
+                    <Title>{this.props.title}</Title>
+                    </Body>
+                </Header>
+                <Content style={{padding:16}}>
                     <Text>Scene 1</Text>
                     <Button onPress={Actions.Scene2}><Text>Go to Scene2</Text></Button>
                 </Content>
