@@ -491,6 +491,7 @@ const styles = StyleSheet.create({
 
 import {Router, Scene} from 'react-native-router-flux';
 
+import Setting from './components/Setting'
 import Scene1 from './components/Scene1'
 import Scene2 from './components/Scene2'
 
@@ -499,7 +500,8 @@ class Route extends React.Component {
         return(
             <Router>
                 <Scene key="root">
-                    <Scene key="Scene1" initial={true} component={Scene1} title="Scene1" hideNavBar={true}/>
+                    <Scene key="Setting" initial={true} component={Setting} title="Setting" hideNavBar={true}/>
+                    <Scene key="Scene1" component={Scene1} title="Scene1" hideNavBar={true}/>
                     <Scene key="Scene2" component={Scene2} title="Scene2" hideNavBar={true}/>
                 </Scene>
             </Router>
