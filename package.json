@@ -9,7 +9,8 @@
   "dependencies": {
     "native-base": "^2.0.12",
     "react": "15.4.2",
-    "react-native": "^0.42.0"
+    "react-native": "^0.42.0",
+    "react-native-material-kit": "^0.4.1"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

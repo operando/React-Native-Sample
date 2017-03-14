@@ -126,6 +126,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-material-kit')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     // If you want to ensure that you are always using a specific React Native version in your native build, replace + with an actual React Native version you've downloaded from npm.

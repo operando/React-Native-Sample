@@ -19,10 +19,18 @@ import {
     Platform,
     TouchableOpacity,
     ViewPagerAndroid,
+    DrawerLayoutAndroid
     // Switch,
     // ListItem,
     // List
 } from 'react-native';
+
+import {
+    MKButton,
+    MKTextField,
+    MKColor,
+    Textfield
+} from 'react-native-material-kit';
 
 import {List, ListItem, Switch} from 'native-base';
 
@@ -376,6 +384,65 @@ class SwitchSample2 extends Component {
     }
 }
 
+class DrawerLayoutAndroidSample extends Component {
+
+    render() {
+        var navigationView = (
+            <View style={{flex: 1, backgroundColor: '#fff'}}>
+                <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>Item1</Text>
+                <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>Item2</Text>
+            </View>
+        );
+
+        return (
+            <DrawerLayoutAndroid
+                drawerWidth={300}
+                drawerPosition={DrawerLayoutAndroid.positions.Left}
+                renderNavigationView={() => navigationView}>
+                <View style={{flex: 1, alignItems: 'center'}}>
+                    <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
+                    <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+                </View>
+            </DrawerLayoutAndroid>
+        );
+    }
+}
+
+
+const ColoredRaisedButton = MKButton.coloredButton()
+    .withText('test')
+    .withOnPress(() => {
+        console.log("Hi, it's a colored button!");
+    })
+    .build();
+
+// const TextfieldWithFloatingLabel = MKTextField.textfieldWithFloatingLabel()
+//     .withPlaceholder('Number...')
+//     .withStyle(styles.textfieldWithLabel)
+//     .withTextInputStyle({flex: 1})
+//     .withFloatingLabelFont({
+//         fontSize: 10,
+//         fontStyle: 'italic',
+//         fontWeight: '200',
+//     })
+//     .withKeyboardType('numeric')
+//     .build();
+
+class MaterialSample extends Component {
+
+    render() {
+        return (
+            <View style={{flex: 1, alignItems: 'center'}}>
+                <ColoredRaisedButton />
+                <MKTextField
+                    tintColor={MKColor.Lime}
+                    textInputStyle={{color: MKColor.Orange}}
+                    placeholder="Text…"
+                    style={styles.textfield}/>
+            </View>
+        );
+    }
+}
 
 const styles = StyleSheet.create({
     viewPager: {
@@ -384,6 +451,14 @@ const styles = StyleSheet.create({
     pageStyle: {
         alignItems: 'center',
         padding: 20,
+    },
+    textfield: {
+        height: 28,
+        marginTop: 32,
+    },
+    textfieldWithLabel: {
+        height: 48,
+        marginTop: 10,
     },
     bigBlue: {
         ...Platform.select({
@@ -417,7 +492,7 @@ const styles = StyleSheet.create({
 
 
 //AppRegistry.registerComponent('ListViewBasics', () => TouchesSample);
-AppRegistry.registerComponent('ListViewBasics', () => SwitchSample);
+AppRegistry.registerComponent('ListViewBasics', () => MaterialSample);
 AppRegistry.registerComponent('PizzaTranslator', () => PizzaTranslator);
 AppRegistry.registerComponent('BlinkApp', () => BlinkApp);
 // AppRegistry.registerComponent('LotsOfGreetings', () => LotsOfGreetings);
