@@ -34,7 +34,6 @@ import {
 
 import {List, ListItem, Switch} from 'native-base';
 
-
 import ToastAndroid from './ToastAndroid';
 
 export default class AwesomeProject extends Component {
@@ -490,9 +489,26 @@ const styles = StyleSheet.create({
     },
 });
 
+import {Router, Scene} from 'react-native-router-flux';
+
+import Scene1 from './components/Scene1'
+import Scene2 from './components/Scene2'
+
+class Route extends React.Component {
+    render () {
+        return(
+            <Router>
+                <Scene key="root">
+                    <Scene key="Scene1" initial={true} component={Scene1} title="Scene1" hideNavBar={true}/>
+                    <Scene key="Scene2" component={Scene2} title="Scene2" hideNavBar={true}/>
+                </Scene>
+            </Router>
+        )
+    }
+}
 
 //AppRegistry.registerComponent('ListViewBasics', () => TouchesSample);
-AppRegistry.registerComponent('ListViewBasics', () => MaterialSample);
+AppRegistry.registerComponent('ListViewBasics', () => Route);
 AppRegistry.registerComponent('PizzaTranslator', () => PizzaTranslator);
 AppRegistry.registerComponent('BlinkApp', () => BlinkApp);
 // AppRegistry.registerComponent('LotsOfGreetings', () => LotsOfGreetings);
