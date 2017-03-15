@@ -126,6 +126,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-push-notification')
     compile project(':react-native-default-preference')
     compile project(':react-native-material-kit')
     compile fileTree(dir: "libs", include: ["*.jar"])

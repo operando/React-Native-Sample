@@ -13,6 +13,7 @@
     "react-native": "^0.42.0",
     "react-native-default-preference": "^1.0.2",
     "react-native-material-kit": "^0.4.1",
+    "react-native-push-notification": "^2.2.1",
     "react-native-router-flux": "^3.38.0"
   },
   "devDependencies": {

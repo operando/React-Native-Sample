@@ -47,6 +47,12 @@ class Setting extends Component {
                     <ListItem onPress={Actions.Sushi}>
                         <Text>Sushi</Text>
                     </ListItem>
+                    <ListItem onPress={Actions.Notification}>
+                        <Text>Notification</Text>
+                    </ListItem>
+                    <ListItem onPress={Actions.OpenUrl}>
+                        <Text>OpenUrl</Text>
+                    </ListItem>
                 </Content>
             </Container>
         )
