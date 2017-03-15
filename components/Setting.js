@@ -1,17 +1,32 @@
 import React, {Component} from 'react';
-import { Actions} from 'react-native-router-flux';
-
+import {Actions} from 'react-native-router-flux';
 import {
-    StyleSheet,
     Text,
-    View
+    BackAndroid,
+    Alert
 } from 'react-native';
-
 import {Container, Header, Title, Body, Content, ListItem} from 'native-base';
 
 class Setting extends Component {
 
     render() {
+        BackAndroid.addEventListener('hardwareBackPress', function () {
+            console.log("back");
+            Alert.alert(
+                'アプリを終了しますか？',
+                'アプリを終了しますか？',
+                [
+                    {
+                        text: 'Cancel', onPress: () => {
+                    }, style: 'cancel'
+                    },
+                    {text: 'OK', onPress: () => BackAndroid.exitApp()},
+                ],
+                {cancelable: true}
+            );
+            return true;
+        });
+
         return (
             <Container>
                 <Header>
@@ -25,6 +40,12 @@ class Setting extends Component {
                     </ListItem>
                     <ListItem onPress={Actions.Scene2}>
                         <Text>Scene2</Text>
+                    </ListItem>
+                    <ListItem onPress={Actions.Counter}>
+                        <Text>Counter</Text>
+                    </ListItem>
+                    <ListItem onPress={Actions.Sushi}>
+                        <Text>Sushi</Text>
                     </ListItem>
                 </Content>
             </Container>

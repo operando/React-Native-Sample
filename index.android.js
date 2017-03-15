@@ -494,6 +494,8 @@ import {Router, Scene} from 'react-native-router-flux';
 import Setting from './components/Setting'
 import Scene1 from './components/Scene1'
 import Scene2 from './components/Scene2'
+import Counter from './components/Counter'
+import Sushi from './components/Sushi'
 
 class Route extends React.Component {
     render () {
@@ -503,6 +505,8 @@ class Route extends React.Component {
                     <Scene key="Setting" initial={true} component={Setting} title="Setting" hideNavBar={true}/>
                     <Scene key="Scene1" component={Scene1} title="Scene1" hideNavBar={true}/>
                     <Scene key="Scene2" component={Scene2} title="Scene2" hideNavBar={true}/>
+                    <Scene key="Counter" component={Counter} title="Counter" hideNavBar={true}/>
+                    <Scene key="Sushi" component={Sushi} title="Sushi" hideNavBar={true}/>
                 </Scene>
             </Router>
         )
