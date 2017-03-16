@@ -3,6 +3,7 @@ package com.awesomeproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.azendoo.reactnativesnackbar.SnackbarPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.reactlibrary.RNDefaultPreferencePackage;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
@@ -33,6 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.asList(
                     new MainReactPackage(),
+            new SnackbarPackage(),
             new ReactNativePushNotificationPackage(),
             new RNDefaultPreferencePackage(),
             new ReactMaterialKitPackage(),

@@ -498,6 +498,7 @@ import Counter from './components/Counter'
 import Sushi from './components/Sushi'
 import Notification from './components/Notification'
 import OpenUrl from './components/OpenUrl'
+import SnackbarSample from './components/SnackbarSample'
 
 class Route extends React.Component {
     render () {
@@ -511,6 +512,7 @@ class Route extends React.Component {
                     <Scene key="Sushi" component={Sushi} title="Sushi" hideNavBar={true}/>
                     <Scene key="Notification" component={Notification} title="Notification" hideNavBar={true}/>
                     <Scene key="OpenUrl" component={OpenUrl} title="OpenUrl" hideNavBar={true}/>
+                    <Scene key="SnackbarSample" component={SnackbarSample} title="SnackbarSample" hideNavBar={true}/>
                 </Scene>
             </Router>
         )

@@ -53,6 +53,9 @@ class Setting extends Component {
                     <ListItem onPress={Actions.OpenUrl}>
                         <Text>OpenUrl</Text>
                     </ListItem>
+                    <ListItem onPress={Actions.SnackbarSample}>
+                        <Text>SnackbarSample</Text>
+                    </ListItem>
                 </Content>
             </Container>
         )

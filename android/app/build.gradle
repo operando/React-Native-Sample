@@ -83,13 +83,13 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "com.awesomeproject"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         ndk {
@@ -126,6 +126,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-snackbar')
     compile project(':react-native-push-notification')
     compile project(':react-native-default-preference')
     compile project(':react-native-material-kit')
